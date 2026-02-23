@@ -18,12 +18,11 @@ const todo = reactive({
 });
 const isLoading = ref(false);
 
-
 const loadTodos = async () => {
   isLoading.value = true;
   try {
     const data = await todoService.getAll();
-    todos.value = data.reverse(); 
+    todos.value = data.reverse();
   } catch (error) {
     console.error("Ошибка при загрузке данных:", error);
     alert("Не удалось загрузить список задач с сервера");
@@ -97,15 +96,26 @@ onMounted(loadTodos);
       <Button> Добавить </Button>
     </form>
   </div>
-  <div class="space-y-2 m-10 max-w-md">
-    <TodoItem
-      v-for="todo in todos"
-      :key="todo.id"
-      :todo="todo"
-      @delete="removeTodo"
-      @toggle-status="changeStatus"
-      @toggle-important="changeImportant"
-    />
+  <div class="m-10 max-w-md">
+    <h1 class="text-2xl font-bold mb-4">Мои задачи</h1>
+    <div v-if="isLoading" class="flex justify-center py-10">
+      <div
+        class="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"
+      ></div>
+    </div>
+    <div v-else class="space-y-2">
+      <TodoItem
+        v-for="todo in todos"
+        :key="todo.id"
+        :todo="todo"
+        @delete="removeTodo"
+        @toggle-status="changeStatus"
+        @toggle-important="changeImportant"
+      />
+      <p v-if="todos.length === 0" class="text-center text-slate-400 py-10">
+        Задач пока нет. Добавьте первую!
+      </p>
+    </div>
   </div>
 </template>
 
