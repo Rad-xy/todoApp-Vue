@@ -34,7 +34,7 @@ const emit = defineEmits(["delete", "toggle-status", "toggle-important"]);
     <div class="flex items-center gap-2 flex-shrink-0">
       <button
         @click="emit('toggle-important', todo.id)"
-        class="p-1.5 rounded-lg transition-colors hover:bg-amber-100"
+        class="p-1.5 rounded-lg transition-colors hover:bg-amber-100 cursor-pointer"
         :class="todo.isImportant ? 'text-amber-500' : 'text-slate-300'"
       >
         <svg
@@ -53,8 +53,9 @@ const emit = defineEmits(["delete", "toggle-status", "toggle-important"]);
         </svg>
       </button>
       <button
+        v-if="todo.status === 'completed'"
         @click="emit('delete', todo.id)"
-        class="p-1.5 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+        class="p-1.5 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
       >
         <svg
           class="w-5 h-5"
