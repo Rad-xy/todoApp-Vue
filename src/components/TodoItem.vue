@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
   todo: {
-    id: number;
+    id: string;
     text: string;
     status: "active" | "completed" | "archived";
     isImportant: boolean;
