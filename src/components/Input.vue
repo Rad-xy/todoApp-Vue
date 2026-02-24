@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const model = defineModel();
+const model = defineModel<string>();
 </script>
 
 <template>
@@ -13,4 +13,4 @@ const model = defineModel();
   </div>
 </template>
 
-<style lang="postcss" scoped></style>
+<style scoped></style>
