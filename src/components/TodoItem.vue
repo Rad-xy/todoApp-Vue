@@ -1,11 +1,8 @@
 <script setup lang="ts">
+import type { Todo } from "@/stores/todoStore";
+
 interface Props {
-  todo: {
-    id: string;
-    text: string;
-    status: "active" | "completed" | "archived";
-    isImportant: boolean;
-  };
+  todo: Todo;
 }
 
 const props = defineProps<Props>();
@@ -75,4 +72,4 @@ const emit = defineEmits(["delete", "toggle-status", "toggle-important"]);
   </div>
 </template>
 
-<style lang="postcss" scoped></style>
+<style scoped></style>
