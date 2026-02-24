@@ -20,7 +20,7 @@ const store = useTodoStore();
       </div>
       <nav class="flex flex-col gap-1 p-4 space-y-1 overflow-y-auto">
         <RouterLink
-          to="/"
+          :to="{name: 'home'}"
           class="group flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 active:scale-[0.98]"
         >
           <span
@@ -35,7 +35,7 @@ const store = useTodoStore();
         </RouterLink>
 
         <RouterLink
-          to="/important"
+          :to="{name: 'important'}"
           class="group flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-600 hover:bg-amber-50 hover:text-amber-600 active:scale-[0.98]"
         >
           <span
@@ -50,7 +50,7 @@ const store = useTodoStore();
         </RouterLink>
 
         <RouterLink
-          to="/completed"
+          :to="{name: 'completed'}"
           class="group flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 active:scale-[0.98]"
         >
           <span class="text-xl group-hover:bounce transition-all">✔️</span>
